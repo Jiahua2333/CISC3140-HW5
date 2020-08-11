@@ -1,152 +1,50 @@
 import React, { Component } from "react";
-import GifCard from "./GifCard";
+import Pokemon from "./Pokemon";
 class SearchField extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-        selectValue: '',
         keyword: '',
-        limit: '',
-        rating: '',
-        tag: '',
+        pre_keyword: '',
         send: false,
     };
   }
 
-
-  handleSelectChange = (event) => {
+  handleKeyWordChange = (event) => {
+    let word = event.target.value.toLowerCase();
     this.setState({ 
-      selectValue: event.target.value, 
-      keyword: '',
-      limit: '',
-      rating: '',
-      tag: '',
-      send: false,
+      keyword: word, 
     });
   };
 
-  handleKeyWordChange = (event) => {
-    this.setState({ keyword: event.target.value });
-  };
-
-  handleLimitChange = (event) => {
-    this.setState({ limit: event.target.value });
-  };
-
-  handleRatingChange = (event) => {
-    this.setState({ rating: event.target.value });
-  };
-
-  handleTagChange = (event) => {
-    this.setState({ tag: event.target.value });
-  };
-
   handleSearch = () => {
-    this.setState({ send: true });
+    let word = this.state.keyword
+    this.setState({ 
+      pre_keyword: word,
+      keyword: '',
+      send: true,
+    });
   };
 
 
-    render() {
-      let filter;
-      //console.log(this.state.selectValue);
-      if(this.state.selectValue === "Regular"){
-        filter = (
-          <>
-            <label for="KeyWord">Key Word: </label>
-            <input
-              type="text"
-              name="KeyWord"
-              value={this.state.keyword}
-              onChange={this.handleKeyWordChange}
-            />
-            <br/>
-            <label for="Limit">Number of GIFS: </label>
-            <input
-              type="text"
-              name="Limit"
-              value={this.state.limit}
-              onChange={this.handleLimitChange}
-            />
-            <br/>
-            <label for="Rating">Choose a search method:</label>
-            <select name="Rating" value={this.state.rating} onChange={this.handleRatingChange}>
-                <option value="">--Select A Rank--</option>
-                <option value="G">G</option>
-                <option value="PG">PG</option>
-                <option value="PG-13">PG-13</option>
-                <option value="R">R</option>
-            </select>
-          </>
-        );
-      }
-      else if(this.state.selectValue === "Random"){
-        filter = (
-          <>
-            <label for="Tag">Filters results by specified tag: </label>
-            <input
-              type="text"
-              name="Tag"
-              value={this.state.tag}
-              onChange={this.handleTagChange}
-            />
-            <br/>
-            <label for="Rating">Choose a search method:</label>
-            <select name="Rating" value={this.state.rating} onChange={this.handleRatingChange}>
-                <option value="">--Select A Rank--</option>
-                <option value="G">G</option>
-                <option value="PG">PG</option>
-                <option value="PG-13">PG-13</option>
-                <option value="R">R</option>
-            </select>
-          </>
-        );
-      }
-      else if(this.state.selectValue === "Trending"){
-        filter = (
-          <>
-            <label for="Limit">Number of GIFS: </label>
-            <input
-              type="text"
-              name="Limit"
-              value={this.state.limit}
-              onChange={this.handleLimitChange}
-            />
-            <br/>
-            <label for="Rating">Choose a search method:</label>
-            <select name="Rating" value={this.state.rating} onChange={this.handleRatingChange}>
-                <option value="">--Select A Rank--</option>
-                <option value="G">G</option>
-                <option value="PG">PG</option>
-                <option value="PG-13">PG-13</option>
-                <option value="R">R</option>
-            </select>
-          </>
-        );
-      }
-      
-  
+    render() { 
       return (
         <>
         <div className="SearchField">
-            <label for="Search methods">Choose a search method:</label>
-            <select name="Search methods" value={this.state.selectValue} onChange={this.handleSelectChange}>
-                <option value="">--Select A Method--</option>
-                <option value="Regular">Regular Search</option>
-                <option value="Trending">Trending Search</option>
-                <option value="Random">Random Search</option>
-            </select>
+            <label htmlFor="KeyWord">ID or Pokemon Name: </label>
+            <input
+              type="text"
+              name="KeyWord"
+              placeholder="132 or ditto"
+              value={this.state.keyword}
+              onChange={this.handleKeyWordChange}
+            />
             <button onClick = {this.handleSearch}>Search</button>
             <br/>
-            {filter}
             {this.state.send ?  
-              <GifCard 
-                search_method ={this.state.selectValue}
-                search_keyword = {this.state.keyword}
-                search_number = {this.state.limit}
-                search_rank = {this.state.rating}
-                search_tag = {this.state.tag} 
-              />  :
-             <GifCard />}
+              <Pokemon 
+                search_keyword = {this.state.pre_keyword}
+              />  : "loading"}
         </div>
         </>
       );
