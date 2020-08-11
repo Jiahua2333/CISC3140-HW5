@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/CISC3140-HW5/static/css/main.ad0fd08f.chunk.css",
+    "main.js": "/CISC3140-HW5/static/js/main.58a95d4f.chunk.js",
+    "main.js.map": "/CISC3140-HW5/static/js/main.58a95d4f.chunk.js.map",
+    "runtime-main.js": "/CISC3140-HW5/static/js/runtime-main.e5c3a527.js",
+    "runtime-main.js.map": "/CISC3140-HW5/static/js/runtime-main.e5c3a527.js.map",
+    "static/js/2.16e43bef.chunk.js": "/CISC3140-HW5/static/js/2.16e43bef.chunk.js",
+    "static/js/2.16e43bef.chunk.js.map": "/CISC3140-HW5/static/js/2.16e43bef.chunk.js.map",
+    "index.html": "/CISC3140-HW5/index.html",
+    "precache-manifest.6b503a9ff09e7aa3634921a58a843f58.js": "/CISC3140-HW5/precache-manifest.6b503a9ff09e7aa3634921a58a843f58.js",
+    "service-worker.js": "/CISC3140-HW5/service-worker.js",
+    "static/css/main.ad0fd08f.chunk.css.map": "/CISC3140-HW5/static/css/main.ad0fd08f.chunk.css.map",
+    "static/js/2.16e43bef.chunk.js.LICENSE.txt": "/CISC3140-HW5/static/js/2.16e43bef.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e5c3a527.js",
+    "static/js/2.16e43bef.chunk.js",
+    "static/css/main.ad0fd08f.chunk.css",
+    "static/js/main.58a95d4f.chunk.js"
+  ]
+}
