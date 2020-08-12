@@ -1,3 +1,5 @@
+This project use the Pokéapi. When you enter a ID or name of a Pokemon, it will show the information of this Pokemon.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
